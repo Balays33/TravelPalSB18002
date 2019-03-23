@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "ie.BalazsBarczaSB18002.TravelPal"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "ie.BalazsBarczaSB18002.TravelPal"
         }
     },
     "dependent_plugins": {}
