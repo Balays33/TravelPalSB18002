@@ -12,6 +12,10 @@
         -->
      <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *"> -->
 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
     <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -76,12 +80,13 @@
 
                             <!-- get geolocation -->
                             <div id="geolocation">Waiting for position..</div>
+                            <div id="opencage">Waiting for location</div>
 
                             <div class="block">
                                 <div class="row">
                                   <button class="col button button-fill" onclick="geoLocation()">Current Position</button>
-                                  <button class="col button button-fill">Button</button>
-                                  <button class="col button button-fill button-round">Round</button>
+                                  <button class="col button button-fill" onclick="openCage()">Current location</button>
+                                  <button class="col button button-fill button-round" onclick="openCage()">Weater</button>
                                 </div>
                               </div>
 
@@ -97,8 +102,47 @@
 
 
 
-                                  
+                                  <div class='container-fluid'>
+                                    <div class='row'>
+                                     <div class='col-lg-12'>
+                                      <h1 class='text-center'>Local Weather with Dark Sky API</h1>
+                                     </div>
+                                    </div>
+                                    <div class='row' id='location'>
+                                     <div class='col-lg-12' id='address'>
+                                     </div>
+                                    </div>
+                                    <div class='row'>
+                                     <div class='col-lg-4'></div>
+                                     <div class='col-lg-4' style = 'margin-left: 5%'>
+                                           <canvas id = 'icon'></canvas>
+                                          </div>
+                                     <div class='col-lg-4'></div>
+                                    </div>
+                                    <div class='row'>
+                                     <div class='col-lg-5'></div>
+                                     <div class='col-lg-1' id='temp'>
+                                     </div>
+                                     <div class='col-lg-1' id='toggleScale'>
+                                      <a href='#'>
+                                       <span id='far'> f </span>
+                                      </a>
+                                      <span> | </span>
+                                      <a href='#'>
+                                       <h1><span id='cel'> c </span></h1>
+                                      </a>
+                                     </div>
+                                     <div class='col-lg-5'></div>
+                                    </div>
+                                   </div>
 
+
+                                  
+                            <br>     
+                            <a href="weather.html">Weather app</a>
+                            
+                            <br>
+                            <br>
                             <a href="about.html">About app</a>
                         </div>
                     </div>
@@ -118,7 +162,11 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="https://gitcdn.link/cdn/darkskyapp/skycons/master/skycons.js"></script>
     <!--<script type="text/javascript" src="js/geolocation.js"></script>  -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApFPNQ2WxbEueUXMJBPHjLenlPnFo68ls&callback=initMap">  </script> -->
+    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script> -->
+	<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js'></script> -->
 </body>
 
 </html>
