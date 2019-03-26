@@ -43,8 +43,8 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 })
 
 
-Latitude=51.507351;
-Longitude=-0.127758;
+var Latitude;
+var Longitude;
 
 // geoLocation function
 function geoLocation(){
@@ -100,8 +100,8 @@ function geoLocation(){
     // The url to send the request to. Notice that we're passing
     // here some value of Latituted and longitude for the API 
     // to process   47.499663, 19.075570
-    const url = 'https://api.opencagedata.com/geocode/v1/json?q=51.507351+-0.127758&key=a36ac62bfab44ff09eb13691ba88ea47';
-    //const url = 'https://api.opencagedata.com/geocode/v1/json?q=Latitude+Longitude&key=a36ac62bfab44ff09eb13691ba88ea47';
+    const url = 'https://api.opencagedata.com/geocode/v1/json?q=' + Latitude + '+' + Longitude + '&key=a36ac62bfab44ff09eb13691ba88ea47';
+    //const url = `https://api.opencagedata.com/geocode/v1/json?q=Latitude+Longitude&key=a36ac62bfab44ff09eb13691ba88ea47`;
     console.log(Latitude , Longitude);
     // Opening the request. Remember, we will send
     // a "GET" request to the URL define above
@@ -142,6 +142,35 @@ function geoLocation(){
     
 }
 
+/* exchange */
+function exchange(){
+  console.log("exchange is working");
+  // set endpoint and your access key
+endpoint = 'live'
+access_key = '310ff77de7a824ad7b6774e18cf4e29e';
+
+
+
+// get the most recent exchange rates via the "live" endpoint:
+$.ajax({
+  url: 'http://apilayer.net/api/' + endpoint + '?access_key=' + access_key,   
+  dataType: 'jsonp',
+  success: function(json) {
+
+      // exchange rata data is stored in json.quotes
+      console.log(json.source,json.quotes.USDEUR,)
+      //alert(json.quotes.USDEUR);
+      erate = json.quotes.USDEUR;
+      document.getElementById('rate').innerHTML = erate;
+      // source currency is stored in json.source
+      //alert(json.source);
+      
+      // timestamp can be accessed in json.timestamp
+     // alert(json.timestamp);
+      
+  }
+});
+}
 
 
 function getTime(){
@@ -192,7 +221,7 @@ function weather(position) {
 			//Skycons
 			var iconRequest = forecast.currently.icon;
 			
-			var icons = new Skycons({'color' : '#eeeeee'});
+			var icons = new Skycons({'color' : 'red'});
 			
 			var iconList = [
 				"clear-day",
@@ -446,4 +475,32 @@ $(document).ready(function() {
   
    
   
+  });
+
+  /* 3 version */
+
+  window.addEventListener('load', ()=> {
+    let long;
+    let lat;
+
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition
+        (position => {
+          console.log(position);
+          long = position.coords.Longitude;
+          lat = position.coords.latitude;
+
+          const proxy = "https://cors-anywhere.herokuapp.com/";
+          const api = `${proxy}https://api.darksky.net/forecast/3ad7f8e54c6fdcafbe0dfa539a9ae18c/${lat},${long}`;
+          
+          fetch(api)
+            .then(response => {
+              return response.json();
+            })
+              .then(data =>{
+                console.log(data);
+              });
+            });
+        
+    }
   });

@@ -1,90 +1,41 @@
 <!-- We don't need a full layout in this file because this page will be parsed with Ajax. -->
 
-<head>
-    <meta charset="UTF-8">
-    <title>Local Weather</title>
-    <!-- <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/weather-icons.min.css"> -->
-  
- </head>
-
 <!-- Top Navbar-->
 <div class="navbar">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-            </a>
-        </div>
-        <div class="center sliding">Weather</div>
-        <div class="right">
-            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-        </div>
-    </div>
+  <div class="navbar-inner">
+      <div class="left">
+          <a href="#" class="back link">
+              <i class="icon icon-back"></i>
+              <span>Back</span>
+          </a>
+      </div>
+      <div class="center sliding">About</div>
+      <div class="right">
+          <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+      </div>
+  </div>
 </div>
 <div class="pages">
-    <div data-page="about" class="page">
-        <div class="page-content">
-            <div class="content-block">
-                <p>Here is Weather page!</p>
-                
-                <div class="city ">
-
-                    <div class="container">
-                  
-                      <div class="city-title ">
-                        <span id="location"> </span>
-                      </div>
-                      <hr />
-                      <div class="city-weather-temperature loader">
-                        <span class="celsius fahrenheit-btn "></span>
-                        <span class="fahrenheit celsius-btn"></span>
-                      </div>
-                  
-                      <div class="city-weather-description">
-                        <span id="icon"></span><br>
-                        <span id="description"></span>
-                      </div>
-                  
-                      <div class="bottom">
-                        <div class="nav-info clearfix">
-                          <div class="add-info">
-                            <ul id="details">
-                              <li>
-                               <span id="todayC"> </span>
-                                <span id="todayF"> </span>
-                              </li>
-                              <li>
-                                <span id="tomorrowC"> </span>
-                                <span id="tomorrowF"> </span>
-                              </li>
-                              <li>
-                                <span id="afterTomorrowC"> </span>
-                                <span id="afterTomorrowF"> </span>
-                              </li>
-                              <li>
-                                <span id="afterAfterTomorrowC"> </span>
-                                <span id="afterAfterTomorrowF"> </span>
-                              </li>
-                              
-                            </ul>
-                              
-                          </div>  <!-- add-info -->
-                          <div><span class="date"> </span> <a href="http://forecast.io" id="forio">Powered by Dark Sky</a></div>
-                        </div> <!-- nav-info -->
-                  
-                      </div> <!-- bottom -->
-                  
+  <div data-page="about" class="page">
+      <div class="page-content">
+          <div class="content-block">
+              <p>Here is About page!</p>
+              
+              <div class="location">
+                  <h1 class="location-timezone">Timezone</h1>
+                  <p>Icon</p>
+                  <div class="temperature">
+                      <div class="degree-section">
+                     <h2 class="temperature-degree">34</h2>
+                     <span>F</span>
                     </div>
+                     <div class="temperature-description">It is friggin cold</div> 
+
                   </div>
+              </div>
 
-
-
-
-            </div>
-        </div>
-    </div>
+      </div>
+  </div>
 </div>
 
 
